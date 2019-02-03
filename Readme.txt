@@ -1,4 +1,14 @@
+This project is a Flask based web-application, which keeps tracks user activity on StackOverflow page. Furthermore, it uses the data collected to make a comparison using visualizations  between the activities of various users along the following parameters:
+1. Comments
+2. Shared  Posts
+3. Up-votes given
+4. Down-votes given
+5. Marked favourites
+
+The application also contains a written analysis of the why the activities were chosen and what it implied.
+
 Steps to install and run the the webapp
+Download the project and then follow the steps below
 Requirements : 
  a.OS - ubuntu, b. browser - Chrome c. Python 2.7
 
