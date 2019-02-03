@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>Assignment 1 - User behaviour logging and social Visualization</h1></center>
+
+
+
+		<h4> a. Interacting with the visualization</h4>
+
+			<p>I have made a pie-chart, depicting the various user behaviours. Clicking on any slice of the pie-chart, will generate another pie-chart, showing the comparison of the current user activity (depicted in the slice clicked) to all the other users. The newly generated pie-chart depicts the overall count of the selected activity, and each slice represents the contribution of each user of the website to the count.
+
+			</p>
+
+		<h4> b. User behaviours logged and Why?</h4>
+			<p> 1. Comments- This event is logged whenever the user adds a comment, to an existing question on Stackoverflow website. This particular event was logged, as it shows how the user contributed to the stackoverflow community by answering the question posed on stackoverflow and it also gives us an insight on more inforamtion the user might ask for a particular question.
+				<BR>
+				2. Shared posts - This event is logged, whenever the user shares a question/answer on Stackoverflow.This event was logged, as it shows how the much the user liked a particular question/answer, and also gives us information about what kind of questions and answers the user liked.
+				<BR>
+				3. Up-votes given - This event is logged, whenever aa user gives an upvote to the a question or an answer.. This event was logged, as using this event, we can know what the user found found highly useful.Also, by giving an upvote, the user is telling rest of the users of Stackoverflow, about how authenticate/ precise a given question/answer is.
+<BR>
+				4. Down-votes given - This event is logged, whenever a user gives a down vote to a question/answer. This event was logged, as using this, we can find out what the user found imprecise,or not relevant. Furthermore, by giving a down vote, the user is telling the Stackoverflow community abut the authenticity of a question/answer.
+<BR>
+				5.  Marked Favourites- This event is logged, when the user marks a question/answer as a favourite. This event was logged, as it can tell us about which answer, the user is likely to look back up in future.
+
+			</p>
+
+		<h4> c. Analysis and  Findings</h4>
+
+			<p>Based on the visualization of the behaviour logs of all the users, I found the following patterns
+				<br>
+				1. Overall, most of the users had upvoted more questions/answers as compared to down-voting. By this, we can conclude that the users found  more questions, that were highly useful and less of imprecise/irrelevant questions/answers.
+<BR>
+				2. Majority of the users, posted a fair number of  comments. This suggests that, either the users wanted more information on questions that the commented on or  they wrote answers to a given question, thereby contributing to stackoverflow community.
+<BR>
+				3. On the whole, the users marked a lot of questions as favourites.We can conclude by this, that the users were able to find answers, which they thought might be useful in future and which they may have to come back to.
+
+			</p>
+
+
+
+		<h4> d.Technology used</h4>
+
+			<p>
+				The given application is a web based app. The following tachnology stack was used:
+					1. Front-end : HTML, CSS, Javascript
+					<BR>
+					2. Back-end : Flask.
+					<BR>
+					3. Database : Sqlite
+					<BR>
+					4. Interactive visualization : Plotly.js
+					<BR>
+
+			</p>
+
+		<h4>e. Steps Taken to find the results and why does it matter</h4>
+		<p>
+			I wanted to know about the the interest of the users and about their interactions with Stackoverflow. So, even the actions I selected were along those lines (like upvote, comment, downvote, mark_favourites ,shared posts). I plotted the count of each of these events, to know how the trend was for all the users.
+
+			The results generated mattered, becuase it gives us ana overall idea, of how the users are interacting, and are also useful for building user profile of the user.
+
+
+		</p>
+
+
+</body>
+</html>

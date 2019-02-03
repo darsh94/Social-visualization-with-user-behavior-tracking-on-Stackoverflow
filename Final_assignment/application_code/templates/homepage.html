@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="refresh" content="1"/>-->
+    <title>Title</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+
+
+
+
+<body>
+<center>    <h1>Hello {{users.username}}</h1></center>
+ <div class="row">
+         <div class="col-sm-4 text-center">
+
+             <a href={{link}}>Link to Stackoverflow</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             <a href="/writeup">Write-Up</a>
+         </div>
+              <div class="col-sm-4 text-center"><a href="/log_out">Logout</a></div>
+     {% if tablelen2 != 0  %}
+         <div class="col-sm-4 text-center"><a href="/chart_pie">Social Visualization</a></div>
+      {% else %}
+            <p> You have no logging history to visualize. Please go to stackoverflow page and do some interactions. </p>
+            <br>
+     {% endif %}
+
+ </div>
+
+ <div class="row">
+         <div class="col-sm-4"></div>
+
+     <div class="col-sm-4 text-center">
+        {% if tablelen == 1  %}
+            <div> Welcome new user for the first time</div>
+        {% endif  %}
+
+    <Br>
+         <script>
+             function show_chart()
+             {
+                window.location='/chart_pie';
+
+             }
+
+             function logout()
+             {
+             console.log('loggin out');
+              window.location='/log_out';
+
+             }
+
+             function Stackoverflow()
+             {
+              window.location={{link}};
+
+             }
+         </script>
+<br>
+         <p>  THe below table shows the 10 most recent user log-in/log-out activities  </p>
+         <br>
+    {{table}}
+ <br>
+<br>
+
+        {% if tablelen2 == 0  %}
+            <div> You have no new activites. Please go to stackoverflow page and do some interactions.
+            </div>
+         {% else %}
+            <p>  THe below table shows the all the activites done by the current user on StackoverFlow Website </p>
+            <br>
+        {% endif  %}
+
+
+<br>
+    {{table2}}
+<br>
+<br>
+<br>
+
+
+
+
+     </div>
+              <div class="col-sm-4"></div>
+
+ </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello, {{ user.username }}. Welcome to the Website</h1>
+    {% for log in logs %}
+    <div><p>{{ log.timestamp}} </p><b>{{}}</b></div>
+    {% endfor %}
+{% endblock %}

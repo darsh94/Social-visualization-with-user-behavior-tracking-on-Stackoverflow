@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    {% block content %}
+
+
+     <div class="row">
+         <div class="col-sm-4"></div>
+
+     <div class="col-sm-4 text-center">
+    <h2>Welcome to the Login Page</h2>
+    {% with messages=get_flashed_messages() %}
+       {% if  messages %}
+            {% for message in messages%}
+            <p>
+                <strong>{{ message }}</strong>
+            </p>
+            {% endfor %}
+        {% endif %}
+    <form action="" method="POST">
+          {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.uname.label }}
+            {{form.uname()}}
+        </p>
+        <p>
+            {{ form.password.label }}
+            {{form.password()}}
+        </p>
+              <p>{{ form.submit( class_="btn btn-primary")}}</p>
+        <br>
+        <br>
+        <p> Not Registered?
+        </p>
+        <br>
+        <!--<p> <button type="button" class="btn btn-success"><a href="/register-page" >Register here</a></button></p>-->
+        <p> <button type="button" class="btn btn-success" onclick="register()">Register here</button></p>
+
+    </form>
+
+         <script>
+             function register()
+             {
+                window.location='/register-page';
+
+             }
+         </script>
+
+     </div>
+
+
+         <div class="col-sm-4"></div>
+
+{% endwith %}
+{% endblock %}
+
+</body>
+</html>

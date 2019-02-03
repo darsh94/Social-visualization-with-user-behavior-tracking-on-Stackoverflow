@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This  is the Social Visualization Page</title>
+
+     <!--<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css" type="text/css" />-->
+    <!--<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>-->
+
+
+
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Numeric JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script>
+    function displaycurrentuser(){
+    var data = [{
+  values: [{{current_user.comment}},{{current_user.shared_post}},{{current_user.vote_up}},{{current_user.vote_down}},{{current_user.mark_favourite}}],
+  labels: ['comment','share','up votes','down-votes','marked_favourites'],
+  type: 'pie'
+}];
+
+
+var div=document.getElementById('currentuser');
+Plotly.newPlot(div, data);
+var otheruser={{other_users|tojson|safe}};
+console.log(otheruser);
+
+
+
+
+div.on('plotly_click', function(data){
+    console.log(data);
+    var title='';
+    var event_clicked=data['points'][0]['label'];
+    var user_labels=[];
+    <!--console.log('The user is');-->
+    console.log(otheruser);
+    <!--console.log(event_clicked);-->
+
+
+    for (i in otheruser)
+        {
+            user_labels.push(parseInt(i));
+
+        }
+
+    console.log('The users are');
+    console.log(user_labels);
+
+    if(event_clicked ==='comment')
+
+        {
+            console.log('hello in comments')
+            var comments=[];
+
+            for (k in user_labels)
+                {
+                    console.log('Helllfshgfgshgf');
+                    console.log(k);
+
+                    var t1= user_labels[k];
+                    console.log(t1);
+                    <!--console.log(user_labels[k]);-->
+                    <!--console.log(otheruser.t1);-->
+                    <!--console.log(otheruser[t1]);-->
+                    console.log(otheruser[t1].comment);
+                    comments.push(otheruser[t1].comment);
+
+                    <!--comments.push(otheruser[t1]['comment']);-->
+
+
+
+                }
+
+              comments.push({{current_user.comment}})
+                  user_labels.push({{current_user.id}})
+
+              var data = [{
+              values: comments,
+              labels: user_labels,
+              type: 'pie'
+              }];
+
+            var layout={title:'Current user comments vs  other users comments.'}
+            var div_comment=document.getElementById('otherusercomments');
+            Plotly.newPlot(div_comment, data,layout);
+        }
+
+       if(event_clicked ==='share')
+
+        {
+            console.log('hello in shared_post')
+            var share_posts=[];
+
+            for (k in user_labels)
+                {
+                    var t2= user_labels[k];
+
+                    share_posts.push(otheruser[t2]['shared_posts']);
+                }
+              share_posts.push({{current_user.shared_post}})
+              console.log('The share events are');
+              console.log(share_posts);
+              user_labels.push({{current_user.id}})
+              var data = [{
+              values: share_posts,
+              labels: user_labels,
+              type: 'pie'
+              }];
+
+            var layout={title:'Current user shared posts vs  other users shared posts.'}
+
+            var div_spost=document.getElementById('otherusershareposts');
+            Plotly.newPlot(div_spost, data,layout);
+
+
+        }
+
+        if(event_clicked ==='up votes')
+
+        {
+            console.log('hello in upvote')
+            var upvotes=[];
+
+            for (k in user_labels)
+                {
+                    var t3= user_labels[k];
+
+                    upvotes.push(otheruser[t3]['vote-up']);
+
+
+
+                }
+              upvotes.push({{current_user.comment}})
+                  user_labels.push({{current_user.id}})
+
+
+              var data = [{
+              values: upvotes,
+              labels: user_labels,
+              type: 'pie'
+              }];
+
+            var layout={title:'Current user upvotes given vs  other users upvotes given.'}
+
+            var div_uvote=document.getElementById('otheruserupvotes');
+            Plotly.newPlot(div_uvote, data,layout);
+
+
+
+
+        }
+
+
+
+
+        if(event_clicked ==='down-votes')
+
+        {
+            console.log('hello in downvote')
+            var downvotes=[];
+
+            for (k in user_labels)
+                {
+                    var t4= user_labels[k];
+                    downvotes.push(otheruser[t4]['vote-down']);
+
+
+
+                }
+              downvotes.push({{current_user.comment}})
+                  user_labels.push({{current_user.id}})
+
+              var data = [{
+              values: downvotes,
+              labels: user_labels,
+              type: 'pie'
+              }];
+
+            var layout={title:'Current user down votes given vs  other users down votes given.'}
+
+            var div_dvote=document.getElementById('otheruserdownvotes');
+            Plotly.newPlot(div_dvote, data,layout);
+
+
+
+
+        }
+
+
+        if(event_clicked ==='marked_favourites')
+
+        {
+            console.log('hello in favourites')
+            var favourites=[];
+
+            for (k in user_labels)
+                {
+                    var t5= user_labels[k];
+
+                    favourites.push(otheruser[t5]['mark_favourite']);
+                }
+              favourites.push({{current_user.comment}})
+              user_labels.push({{current_user.id}})
+              console.log(favourites);
+              var data = [{
+              values: favourites,
+              labels: user_labels,
+              type: 'pie'
+              }];
+
+            var layout={title:'Current User favourites marked vs other users favourites marked.'}
+
+            var div_fav=document.getElementById('otheruserfavourites');
+            Plotly.newPlot(div_fav, data,layout);
+        }
+
+});
+
+
+}
+  </script>
+
+
+</head>
+<body onload="displaycurrentuser();">
+<div>
+
+</div>
+<center><h1></h1><p> The user id of the current user is {{uid}}</p></center><h1></center></center>
+
+<center><h1></h1><p> The Below graph depicts the total of all interactions done by the user on StackoverFlow Website</p></center><h1></center></center>
+<center><h1></h1><p> Interact with the graph, by selecting any slice (which depicts a particular user activity)</p></center><h1></center></center>
+
+<div id="currentuser"></div>
+
+<div id="otherusercomments" style="display: inline-block"></div>
+
+
+<div id="otheruserupvotes" style="display: inline-block"></div>
+
+<div id="otheruserdownvotes" style="display: inline-block"></div>
+
+<div id="otherusershareposts" style="display: inline-block"></div>
+
+<div id="otheruserfavourites" style="display: inline-block"></div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
